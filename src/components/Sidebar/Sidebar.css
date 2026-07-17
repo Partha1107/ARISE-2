@@ -1,0 +1,12 @@
+li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+li:hover{
+    color: #60A5FA;
+    text-shadow: #60A5FA 0px 0px 10px;
+    transition: all 0.3s ease-in-out;
+}
