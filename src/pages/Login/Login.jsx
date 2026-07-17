@@ -47,7 +47,18 @@ function Login() {
 
     return validationErrors;
   };
-
+  const handleGoogleLogin = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: window.location.origin + "/dashboard",
+      },
+    });
+  
+    if (error) {
+      alert(error.message);
+    }
+  };
   const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -236,6 +247,12 @@ function Login() {
             {isLogin ? "Sign Up" : "Login"}
           </button>
         </p>
+        <button
+          onClick={handleGoogleLogin}
+          className="w-full mt-4 bg-white text-black py-3 rounded-lg font-semibold"
+        >
+          Continue with Google
+        </button>
 
       </div>
     </div>
